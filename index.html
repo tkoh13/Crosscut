@@ -8,15 +8,68 @@
     <link rel="stylesheet" href="./dist/main.css" />
     <script src="./dist/main.js"></script>
     <title>Crosscut</title>
+    <link rel="stylesheet" href="./styles/reset.scss">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Major+Mono+Display&family=Montserrat:wght@300&display=swap" rel="stylesheet">
+
 </head>
 
-<main>
-    <div class="maze">
-        <canvas class="no-border"></canvas>
+<body>
+    <div class="navBar_div">
+        <!-- <h1 class="navBar_ul">
+            <a class="navBar_li" data-offset="20" id="refreshButton" href="#">crosscut</a>
+            <span class="Mask"><span>crosscut</span></span>
+            <span class="Mask"><span>crosscut</span></span>
+        </h1> -->
+        <ul class="navBar_ul" data-offset="10">
+            <li class="navBar_li" onclick>
+                <div class="dropDown">
+                    <span class="dropDownFrom">Algorithms</span>
+                    <span class="Mask"><span>Algorithms</span></span>
+                    <span class="Mask"><span>Algorithms</span></span>
+                    <ul class="dropDownContent">
+                        <li id='buttonDijkstra'><a href="#">Dijkstra's Algorithm</a></li>
+                        <li id='buttonAStar'><a href="#">A* Search</a></li>
+                        <li id='buttonBFS'><a href="#">Breadth-first Search</a></li>
+                        <li id='buttonDFS'><a href="#">Depth-first Search</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li class="navBar_li" onclick>
+                <div class="dropDown">
+                    <span class="dropDownFrom">Maze</span>
+                    <span class="Mask"><span>Maze</span></span>
+                    <span class="Mask"><span>Maze</span></span>
+                </div>
+            </li>
+            <li class="navBar_li" onclick>
+                <div class="dropDown">
+                    <span class="dropDownFrom">speed</span>
+                    <span class="Mask"><span>speed</span></span>
+                    <span class="Mask"><span>speed</span></span>
+                    <ul class="dropDownContent">
+                        <li id='buttonFast'><a href="#">Fast</a></li>
+                        <li id='buttonAverage'><a href="#">Average</a></li>
+                        <li id='buttonSlow'><a href="#">Slow</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li class="navBar_li" onclick>
+                <div class="dropDown">
+                    <span class="dropDownFrom">clear</span>
+                    <span class="Mask"><span>clear</span></span>
+                    <span class="Mask"><span>clear</span></span>
+                    <ul class="dropDownContent">
+                        <li id='buttonClearBoard'><a href="#">Clear Board</a></li>
+                        <li id='buttonClearWalls'><a href="#">Clear Walls</a></li>
+                        <li id='buttonClearPath'><a href="#">Clear Path</a></li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
     </div>
-    <div>
-        <button class="create">Create new maze</button>
-    </div>
-</main>
+</body>
 
 </html>
+
