@@ -16,12 +16,14 @@
 
 <body>
     <div class="navBar_div">
-        <!-- <h1 class="navBar_ul">
-            <span class="navBar_li" id="refreshButton" href="#"><span>crosscut</span></span>
-            <span class="Mask"><span>crosscut</span></span>
-            <span class="Mask"><span>crosscut</span></span>
-        </h1> -->
-        <ul class="navBar_ul" data-offset="10">
+        <h1 class="navBar_h1">
+            <div class="navBar_h1ele">
+                <span class="navBar_h1span" id="refreshButton" href="#"><span>crosscut</span></span>
+                <span class="Mask"><span>crosscut</span></span>
+                <span class="Mask"><span>crosscut</span></span>
+            </div>
+        </h1>
+        <ul class="navBar_ul">
             <li class="navBar_li" onclick>
                 <div class="dropDown">
                     <span class="dropDownFrom">Algorithms</span>
@@ -60,17 +62,35 @@
                     <span class="Mask"><span>clear</span></span>
                     <span class="Mask"><span>clear</span></span>
                     <ul class="dropDownContent">
-                        <li id='buttonClearBoard'><a href="#">Clear Board</a></li>
-                        <li id='buttonClearWalls'><a href="#">Clear Walls</a></li>
-                        <li id='buttonClearPath'><a href="#">Clear Path</a></li>
+                        <li id='buttonClearBoard'><a href="#">Grid</a></li>
+                        <li id='buttonClearWalls'><a href="#">Walls</a></li>
+                        <li id='buttonClearPath'><a href="#">Path</a></li>
                     </ul>
                 </div>
             </li>
         </ul>
     </div>
 
+    <div class="controlBar">
+        <ul class=controlBarKeys>
+            <li id="controlBarStart">Start</li>
+            <li id="controlBarTarget">Target<li>
+            <li id="controlBarWall">Wall</li>
+            <li id="controlBarSearch">Searched</li>
+            <li id="controlBarSelectedPath">Selected Path</li>
+            <!-- <li id="controlBar"></li> -->
+        </ul>
+        <ul class=controlBarTogs>
+            <li>
+                <label class="switch">
+                    <input type="checkbox">
+                    <span class="slider round"></span>
+                </label>
+            Add Walls</li>
+        </ul>
+    </div>
+
     <div class="grid">
-        <!-- <canvas id="canvas_grid" width="1800" height="1200"></canvas> -->
         <table id="table_grid"></table>
     </div>
 </body>

@@ -2,15 +2,14 @@
 import Grid from "./scripts/grid"
 
 document.addEventListener("DOMContentLoaded", () => {
-    // let canvas = document.getElementById("canvas_grid")
-    // let ctx = canvas.getContext("2d")
-
-    let table_grid = document.getElementById("table_grid");
-    // let WIDTH = 1800;
-    // let HEIGHT = 1200;
-    // let gridRows = 48;
-    // let gridCols = 72;
-    let grid = new Grid()//.createGrid(table_grid);
-    grid.createGrid(table_grid); 
-    // console.log("loaded");
+    let height = Math.floor(document.documentElement.clientHeight * .75);
+    let width = Math.floor(document.documentElement.clientWidth * .9);
+    let grid = new Grid(height, width)
+    let nodesArr = grid.nodesArr
+    let gridTable = document.getElementById("table_grid");
+    grid.renderGrid(gridTable);
+    console.log(grid);
+    console.log(nodesArr);
+    console.log(gridTable);
 })
+
