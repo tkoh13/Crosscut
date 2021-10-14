@@ -122,7 +122,7 @@ export default class Grid {
 
         const tutorial = document.getElementById('tutorial');
         tutorial.onclick = () => {
-            tutorial.innerHTML = "<style>#tutorial{background-color: rgba(255, 255, 255, 1);width: 50 %; height: 70 %; border: 2px solid #34495e; border - radius: 4px; text - align: center; float: right; margin - left: auto; margin - right: auto; margin - top: auto; margin - bottom: auto; bottom: 0; top: 0; left: 0; right: 0;}</style>"//;position: absolute; z - index: 3;</style >
+            tutorial.innerHTML = "test"
             
         }
         
