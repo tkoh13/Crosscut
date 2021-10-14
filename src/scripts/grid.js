@@ -85,9 +85,17 @@ export default class Grid {
         })
 
         const buttonClearGrid = document.getElementById('buttonClearGrid');
+        const refreshButton = document.getElementById('refreshButton'); 
         
         buttonClearGrid.onclick = () => {
-            that.reset()
+            // location.reload();
+            // document.location.reload(true);
+            window.location.reload(true);
+        }
+        refreshButton.onclick = () => {
+            // location.reload();
+            // document.location.reload(true);
+            window.location.reload(true);
         }
 
         const buttonDijkstra = document.getElementById('buttonDijkstra')

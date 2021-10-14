@@ -66,20 +66,12 @@ export default class Algorithms {
     
     
     getBFSPath() {
-        // console.log(this.grid.targetNode)
         let BFSPath = [];
         let currentNode = this.grid.targetNode;
-        // console.log(currentNode);
-        while(currentNode.previousid !== null) { //add .previousId here check after lunch
-            // if(!currentNode.previousid){
-            //     continue;
-            // }
+        while(currentNode.previousid !== null) { 
             let pp = currentNode.previousid;
             let previousNode = this.grid.nodes[pp];
-            // console.log(currentNode)
-            // return console.log(previousNode);
             BFSPath.unshift(currentNode);
-            // console.log(BFSPath)
             currentNode = previousNode
         }
         console.log(BFSPath)
@@ -91,7 +83,7 @@ export default class Algorithms {
             setTimeout(() => {
                 let node = BFSPath[i];
                 document.getElementById(node.id).className = 'pathNode'
-            }, 50 * i);
+            }, 5 * i);
         }
     }
     
@@ -100,7 +92,7 @@ export default class Algorithms {
             if(i === this.grid.animate.length) {
                 setTimeout(() => {
                     this.animateBFSPath(this.getBFSPath());
-                }, 15 * i);
+                }, 8 * i);
                 return;
             }
             setTimeout(() => {
@@ -119,8 +111,6 @@ export default class Algorithms {
             let currentNode = queue.shift();
             currentNode.visited = true;
             if (currentNode.id === this.grid.targetNode.id) {
-                // console.log(this.grid.animate);
-                // console.log("muy bien!");
                 let targetIdx = this.grid.animate.indexOf(target);
                 this.grid.animate = this.grid.animate.slice(0, targetIdx);
                 return true;
@@ -130,38 +120,27 @@ export default class Algorithms {
             for (let adj of currentAdjacent) {
                 let adjPos = adj.split("-");
                 let adjNode = this.grid.nodesArr[adjPos[0]][adjPos[1]];
-                // console.log(adjNode);
                 if (!searchedNodes[adjNode.id] && adjNode.type !== "wall") {
-                    // if (adjNode !== target){
-                        // console.log(adjNode);
                         searchedNodes[adjNode.id] = true;
                         this.grid.animate.push(adjNode);
-                        // adjNode.visited = true;
-                        // console.log(searchedNodes);
                         if(adjNode !== this.grid.startNode){
                             adjNode.previousPos = currentNode.pos;
                             adjNode.previousid = currentNode.id;
                             queue.push(adjNode);
                         }
-                    // } //else {
-                        // break;
-                    // }
                 }
-                // if(adjNode.type !== "wall") {
-                // }
-    
-                // console.log(adjNode);
-    
-                // console.log(adjNode.previousPos)
-                // return console.log(adjNode);
-    
             }
         }
-        // console.log("nosir")
         return false;
-        // console.log(grid.startNode)
     }
     
+    dfs() {
+        let start = this.grid.startNode;
+        let target = this.grid.targetNode
+        let stack = [start];
+        let searchedNodes = { start: true };
+        
+    }
 
     
     
