@@ -10,7 +10,7 @@
     <title>Crosscut</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Major+Mono+Display&family=Montserrat:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Major+Mono+Display&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
 
 </head>
 
@@ -62,7 +62,7 @@
                     <span class="Mask"><span>clear</span></span>
                     <span class="Mask"><span>clear</span></span>
                     <ul class="dropDownContent">
-                        <li id='buttonClearBoard'><a href="#">Grid</a></li>
+                        <li id='buttonClearGrid'><a href="#">Grid</a></li>
                         <li id='buttonClearWalls'><a href="#">Walls</a></li>
                         <li id='buttonClearPath'><a href="#">Path</a></li>
                     </ul>
@@ -72,22 +72,42 @@
     </div>
 
     <div class="controlBar">
-        <ul class=controlBarKeys>
-            <li id="controlBarStart">Start</li>
-            <li id="controlBarTarget">Target<li>
-            <li id="controlBarWall">Wall</li>
-            <li id="controlBarSearch">Searched</li>
-            <li id="controlBarSelectedPath">Selected Path</li>
-            <!-- <li id="controlBar"></li> -->
-        </ul>
         <ul class=controlBarTogs>
             <li>
                 <label class="switch">
-                    <input type="checkbox">
+                    <input id="toggleAddObject"type="checkbox">
                     <span class="slider round"></span>
                 </label>
-            Add Walls</li>
+            </li>
         </ul>
+        <ul class="controlBarButtons">
+            <li id="beginSearch">Select an Algorithm</li>
+            <li id="tutorial"><img src='./assets/question_mark.svg'></img>Tutorial</li>
+                        <div class="custom-model-main">
+                            <div class="custom-model-inner">
+                                <div class="close-btn">×</div>
+                                <div class="custom-model-wrap">
+                                    <div class="pop-up-content-wrap">
+                                        <h2>Have a nice day!</h2>
+                                        <p>This is message box popup that revealed on button click.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-overlay"></div>
+                        </div>
+        </ul>
+    </div>
+
+    <div>
+        <ul class=legend>
+            <li id="legendStart"><img src='./assets/chevrons_right.svg' id='start_node'></img> Start Node</li>
+            <li id="legendTarget"><img src='./assets/3d_cube.svg' id='target_node'></img> Target Node<li>
+            <li id="legendWall"><img src='./assets/wall.jpg' id='wall_node'></img> Wall Node</li>
+            <li id="legendSearch"><img src='./assets/searched.jpg' id='searched_node'></img> Searched</li>
+            <li id="legendSelectedPath"><img src='./assets/selected.jpg' id='selected_node'></img> Selected Path</li>
+            <!-- <li id="controlBar"></li> -->
+        </ul>
+
     </div>
 
     <div class="grid">

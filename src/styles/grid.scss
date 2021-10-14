@@ -1,7 +1,6 @@
 // grid stuff
 table tr td{
     border: 1px solid #36c9c2;
-    background:url(triangletwo-up.svg);
     background-color:  #c1ddfc;
     // background: linear-gradient(45deg, #bddeff, #e6dfff);
 }
@@ -19,4 +18,30 @@ table tr td{
     // background-color: #5db1ad;
     width: 24px;
     height: 24px;
+}
+
+// .start {
+//     background-color: #c1ddfc;
+//     // background:url('chevrons_right.svg');
+// }
+
+.wall {
+    background-color: darkslategray
+}
+.empty {
+    background-color: #c1ddfc;
+}
+
+.searchedNode {
+    background-color: #36c9c2;
+    transition: background-color .5s ease-in;
+    transition-delay: .5s;
+}
+
+.pathNode {
+    background-color: #f34af3;
+    transition: background-color .5s ease-in;
+    transition-delay: .5s;
+    transition: transform .7s;
+    transform: rotate(360deg);
 }

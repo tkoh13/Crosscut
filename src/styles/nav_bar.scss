@@ -2,7 +2,7 @@
 body {
   font-family: 'Montserrat', sans-serif;
   font-style: normal;
-  font-weight: normal;
+  font-weight:300;
 }
 
 html,
@@ -13,7 +13,7 @@ body {
 
 body {
   // background: linear-gradient(45deg, #c6e2fe, #d8d0f9);
-  background: linear-gradient(45deg, #000f1f, #1b133b);
+  background: linear-gradient(45deg, #01162d, #271c57);
   justify-content: space-evenly;
 }
 
@@ -33,6 +33,7 @@ body {
 }
 
 .navBar_h1ele {
+  cursor: pointer;
   position: relative;
   color: transparent;
 }
@@ -79,6 +80,7 @@ body {
 .navBar_li {
   position: relative;
   color: transparent;
+  cursor: pointer;
 }
 .navBar_li::before { 
   /* cross out line */
@@ -185,9 +187,12 @@ body {
       /* The switch - the box around the slider */
       .switch {
         position: relative;
-        display: inline-block;
+        display: none;
+        // display: inline-block;
         width: 42px;
         height: 24px;
+        // padding: 1%;
+        // padding-bottom: 1%;
         // width: 60px;
         // height: 34px;
       }
@@ -245,4 +250,62 @@ body {
 
       .slider.round:before {
         border-radius: 50%;
+      }
+
+      // Controls
+      .controlBarButtons {
+        color: #36c9c2;
+        line-height: 1.2;
+        text-align: center;
+        display: flex;
+        justify-content: space-evenly;
+      }
+
+      .controlBarTogs {
+        color: #36c9c2;
+        line-height: 1.2;
+        text-align: center;
+        display: flex;
+        justify-content: space-evenly;
+      }
+
+      #beginSearch {
+        width: 300px;
+        height: 40px;
+        text-align: center;
+        line-height: 40px;
+        border-color: #f34af3;
+        border-radius: 36px;
+        color: #36c9c2;
+        cursor: pointer;
+      }
+      #tutorial {
+        width: 300px;
+        height: 40px;
+        text-align: center;
+        line-height: 40px;
+        border-color: #f34af3;
+        border-radius: 36px;
+        color: #36c9c2;
+        cursor: pointer;
+      }
+
+
+
+      //Legend
+      .legend {
+        // background-color: #c1ddfc;
+        color: #f34af3;
+        font-weight:500;
+        line-height: 1.2;
+        text-align: center;
+        display: flex;
+        justify-content: space-evenly;
+        padding: 1%;
+      }
+      #start_node {
+        background-color: #c1ddfc;
+      }
+      #target_node {
+        background-color: #c1ddfc;
       }
