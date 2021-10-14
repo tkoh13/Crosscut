@@ -66,22 +66,30 @@ export default class Algorithms {
     
     
     getBFSPath() {
+        // console.log(this.grid.targetNode)
         let BFSPath = [];
-        let currentNode = this.targetNode;
-        while(!currentNode) {
-            console.log('hi')
-            let pp = currentNode.previousPos;
-            console.log(pp);
+        let currentNode = this.grid.targetNode;
+        // console.log(currentNode);
+        while(currentNode.previousid !== null) { //add .previousId here check after lunch
+            // if(!currentNode.previousid){
+            //     continue;
+            // }
+            let pp = currentNode.previousid;
+            let previousNode = this.grid.nodes[pp];
+            // console.log(currentNode)
+            // return console.log(previousNode);
             BFSPath.unshift(currentNode);
-            currentNode = this.grid[pp[0]][pp[1]]
+            // console.log(BFSPath)
+            currentNode = previousNode
         }
-        return BFSPath
+        console.log(BFSPath)
+        return BFSPath;
     }
     
     animateBFSPath(BFSPath) {
         for (let i = 0; i < BFSPath.length; i++) {
             setTimeout(() => {
-                let node = this.grid.animate[i];
+                let node = BFSPath[i];
                 document.getElementById(node.id).className = 'pathNode'
             }, 50 * i);
         }
@@ -130,8 +138,11 @@ export default class Algorithms {
                         this.grid.animate.push(adjNode);
                         // adjNode.visited = true;
                         // console.log(searchedNodes);
-                        adjNode.previousPos = currentNode.pos;
-                        queue.push(adjNode);
+                        if(adjNode !== this.grid.startNode){
+                            adjNode.previousPos = currentNode.pos;
+                            adjNode.previousid = currentNode.id;
+                            queue.push(adjNode);
+                        }
                     // } //else {
                         // break;
                     // }

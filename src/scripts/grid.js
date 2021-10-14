@@ -91,22 +91,25 @@ export default class Grid {
         }
 
         const buttonDijkstra = document.getElementById('buttonDijkstra')
-        const buttonAStar = document.getElementById('buttonAStar')
+        // const buttonAStar = document.getElementById('buttonAStar')
         const buttonBFS = document.getElementById('buttonBFS')
         const buttonDFS = document.getElementById('buttonDFS')
         const beginSearch = document.getElementById('beginSearch')
 
         buttonDijkstra.onclick = () => {
             beginSearch.innerText = "Begin Dijkstra's Algorithm"
+            beginSearch.classList.add("shake")
         }
-        buttonAStar.onclick = () => {
-            beginSearch.innerText = "Begin A* Search Algorithm"
-        }
+        // buttonAStar.onclick = () => {
+        //     beginSearch.innerText = "Begin A* Search Algorithm"
+        // }
         buttonBFS.onclick = () => {
             beginSearch.innerText = "Begin Breadth-first Search"
+            beginSearch.classList.add("shake")
         }
         buttonDFS.onclick = () => {
             beginSearch.innerText = "Begin Depth-first Search"
+            beginSearch.classList.add("shake")
         }
         beginSearch.onclick = () => {
             if (beginSearch.innerText === "Select an Algorithm") {
@@ -120,11 +123,6 @@ export default class Grid {
             }
         }
 
-        const tutorial = document.getElementById('tutorial');
-        tutorial.onclick = () => {
-            tutorial.innerHTML = "test"
-            
-        }
         
 
     }
@@ -149,6 +147,47 @@ export default class Grid {
             }
         }
     }
+
+    addListenerForTutorial() {
+        const openpopupButtons = document.querySelectorAll('[data-popup-target]')
+        const closepopupButtons = document.querySelectorAll('[data-popup-close]')
+        const overlay = document.getElementById('overlay')
+
+        openpopupButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const popup = document.querySelector(button.dataset.popupTarget)
+                openpopup(popup)
+            })
+        })
+
+        overlay.addEventListener('click', () => {
+            const popups = document.querySelectorAll('.popup.active')
+            popups.forEach(popup => {
+                closepopup(popup)
+            })
+        })
+
+        closepopupButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const popup = button.closest('.popup')
+                closepopup(popup)
+            })
+        })
+
+        function openpopup(popup) {
+            if (popup == null) return
+            popup.classList.add('active')
+            overlay.classList.add('active')
+        }
+
+        function closepopup(popup) {
+            if (popup == null) return
+            popup.classList.remove('active')
+            overlay.classList.remove('active')
+        }
+    }
+
+    
 
 
     // toggleAddWalls() {

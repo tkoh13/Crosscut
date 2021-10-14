@@ -8,6 +8,7 @@ export default class Node {
         this.type = type; // start, target, empty, object (wall or grid element)
         this.visited = false;
         this.previousPos = null;
+        this.previousid = null;
         // this.isWall = false; 
         this.density = 0; // for grid elements
         this.distance = Infinity;

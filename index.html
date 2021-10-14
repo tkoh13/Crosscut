@@ -31,19 +31,19 @@
                     <span class="Mask"><span>Algorithms</span></span>
                     <ul class="dropDownContent">
                         <li id='buttonDijkstra'><a href="#">Dijkstra's Algorithm</a></li>
-                        <li id='buttonAStar'><a href="#">A* Search</a></li>
+                        <!-- <li id='buttonAStar'><a href="#">A* Search</a></li> -->
                         <li id='buttonBFS'><a href="#">Breadth-first Search</a></li>
                         <li id='buttonDFS'><a href="#">Depth-first Search</a></li>
                     </ul>
                 </div>
             </li>
-            <li class="navBar_li" onclick>
+            <!-- <li class="navBar_li" onclick>
                 <div class="dropDown">
                     <span class="dropDownFrom">Maze</span>
                     <span class="Mask"><span>Maze</span></span>
                     <span class="Mask"><span>Maze</span></span>
                 </div>
-            </li>
+            </li> -->
             <li class="navBar_li" onclick>
                 <div class="dropDown">
                     <span class="dropDownFrom">speed</span>
@@ -63,8 +63,8 @@
                     <span class="Mask"><span>clear</span></span>
                     <ul class="dropDownContent">
                         <li id='buttonClearGrid'><a href="#">Grid</a></li>
-                        <li id='buttonClearWalls'><a href="#">Walls</a></li>
-                        <li id='buttonClearPath'><a href="#">Path</a></li>
+                        <!-- <li id='buttonClearWalls'><a href="#">Walls</a></li>
+                        <li id='buttonClearPath'><a href="#">Path</a></li> -->
                     </ul>
                 </div>
             </li>
@@ -80,10 +80,20 @@
                 </label>
             </li>
         </ul>
-        <ul class="controlBarButtons">
-            <li id="beginSearch">Select an Algorithm</li>
-            <li id="tutorial"><img src='./assets/question_mark.svg'></img>Tutorial</li>
-        </ul>
+        <div class="controlBarButtons">
+            <button id="beginSearch">Select an Algorithm</button>
+            <button data-popup-target="#popup" id="popup-start">Tutorial</button>
+                <div class="popup" id="popup">
+                    <div class="popup-header">
+                        <div class="title">Welcome</div>
+                        <button data-popup-close class="popup-close">&times;</button>
+                    </div>
+                    <div class="popup-body">
+                        Crosscut is a visualizer for pathfinding algorithms. To get started, select an algorithm from the dropdown menu "Algorithms", and be sure to select "Breadth-first Search" since it's the only one that's working right now. After that just hit begin, and watch the search go! 
+                    </div>
+                </div>
+                <div id="overlay"></div>
+        </div>
     </div>
 
     <div>

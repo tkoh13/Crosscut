@@ -274,17 +274,38 @@ body {
         height: 40px;
         text-align: center;
         line-height: 40px;
-        border-color: #f34af3;
+        // border-color: #f34af3;
         border-radius: 36px;
+        // background-color: #94bff0;
         color: #36c9c2;
         cursor: pointer;
       }
-      #tutorial {
+
+      .shake {
+        // background-color: #014691;
+        animation: shake 0.5s;
+      }
+
+      @keyframes shake {
+        0% { transform: translate(1px, 1px) rotate(0deg); }
+        10% { transform: translate(-1px, -2px) rotate(-1deg); }
+        20% { transform: translate(-3px, 0px) rotate(1deg); }
+        30% { transform: translate(3px, 2px) rotate(0deg); }
+        40% { transform: translate(1px, -1px) rotate(1deg); }
+        50% { transform: translate(-1px, 2px) rotate(-1deg); }
+        60% { transform: translate(-3px, 1px) rotate(0deg); }
+        70% { transform: translate(3px, 1px) rotate(-1deg); }
+        80% { transform: translate(-1px, -1px) rotate(1deg); }
+        90% { transform: translate(1px, 2px) rotate(0deg); }
+        100% { transform: translate(1px, -2px) rotate(-1deg); }
+      }
+
+      #popup-start {
         width: 300px;
         height: 40px;
         text-align: center;
         line-height: 40px;
-        border-color: #f34af3;
+        // border-color: #f34af3;
         border-radius: 36px;
         color: #36c9c2;
         cursor: pointer;
@@ -309,3 +330,70 @@ body {
       #target_node {
         background-color: #c1ddfc;
       }
+
+
+//tutorial
+// *, *::after, *::before {
+//   box-sizing: border-box;
+// }
+
+.popup {
+  position: fixed; // we want the popup to follow the user no matter where they are scrolling
+  top: 50%; // center from the sides of screen
+  left: 50%; 
+  transform: translate(-50%, -50%) scale(0); // the -50% refers to the sides of the container
+  transition: 200ms ease-in-out;
+  border: 1px solid #36c9c2;
+  border-radius: 36px;
+  z-index: 10;
+  background-color: #c1ddfc;
+  color:#0d7a75;
+  width:500px;
+  max-width: 80%;
+  // font-weight: bold;
+}
+
+.popup.active{
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.popup-header {
+  padding: 10px 13px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.popup-header .title {
+  font-weight: 500;
+}
+
+.popup-header .popup-close {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: none;
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.popup-body {
+  padding: 10px 13px;
+}
+
+#overlay {
+  position: fixed;
+  opacity: 0;
+  transition: 200ms ease-in-out;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, .5);
+  pointer-events: none;
+}
+
+#overlay.active{
+  opacity: 1;
+  pointer-events: all;
+}
