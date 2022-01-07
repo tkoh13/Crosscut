@@ -1,11 +1,11 @@
 export const simpleDivision = (graph, rowStart, rowEnd, colStart, colEnd) => {
   if (rowEnd - rowStart < 5 || colEnd - colStart < 5) return;
   let possibleRows = [];
-  for (let n = rowStart; n < rowEnd; n += 2) {
+  for (let n = rowStart + 1; n < rowEnd; n += 2) {
     possibleRows.push(n);
   }
   let possibleCols = [];
-  for (let n = colStart; n < colEnd; n += 2) {
+  for (let n = colStart + 1; n < colEnd; n += 2) {
     possibleCols.push(n);
   }
   
