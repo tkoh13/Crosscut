@@ -3,7 +3,7 @@ class GraphNode {
     this.id = id;
     this.status = status;
     // 0: empty, 1: wall, 2: start, 3: weight1, 4: weight2, 5: target
-    this.neighbors = []; // this.getNeighbors(graph); //null //
+    this.neighbors = []; 
     this.previousId = null;
   }
 

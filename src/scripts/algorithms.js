@@ -79,7 +79,6 @@ export const breadthFirst = (graph) => {
     let currentNode = queue.shift();
     if (!searched.has(currentNode.id)) {
       searched.add(currentNode.id);
-      // for (let neighbor of currentNode.neighbors) {
       currentNode.neighbors.forEach((neighbor, idx) => {
         if (!searched.has(neighbor.id) && neighbor.status === 5) {
           neighbor.previousId = currentNode.id;
@@ -98,10 +97,8 @@ export const breadthFirst = (graph) => {
           neighbor.previousId = currentNode.id;
           queue.push(neighbor);
         } else {
-          // console.log(neighbor) // start node
         }
       });
-      // }
     }
     if (!searching) return animateSearch(graph, searched);
   }

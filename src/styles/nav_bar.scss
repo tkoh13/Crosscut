@@ -167,10 +167,7 @@ body {
 }
 
 .controlBar {
-  // font-size: 1rem;
   line-height: 1.2;
-  // text-align: center;
-  // display: flex;
   justify-content: space-evenly;
   color: #36c9c2;
 }
@@ -324,7 +321,6 @@ body {
         margin: 15px;
       }
       .legend {
-        // background-color: #c1ddfc;
         color: #f34af3;
         font-weight:500;
         line-height: 1.2;
@@ -339,12 +335,6 @@ body {
       #target_node {
         background-color: #c1ddfc;
       }
-
-
-//tutorial
-// *, *::after, *::before {
-//   box-sizing: border-box;
-// }
 
 .popup {
   position: fixed; // we want the popup to follow the user no matter where they are scrolling

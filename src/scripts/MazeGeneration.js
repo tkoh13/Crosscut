@@ -1,7 +1,5 @@
 export const simpleDivision = (graph, rowStart, rowEnd, colStart, colEnd) => {
   if (rowEnd - rowStart < 5 || colEnd - colStart < 5) return;
-  // console.log(rowStart, rowEnd, colStart, colEnd); 
-  // console.log(row, col)
   let possibleRows = [];
   for (let n = rowStart; n < rowEnd; n += 2) {
     possibleRows.push(n);

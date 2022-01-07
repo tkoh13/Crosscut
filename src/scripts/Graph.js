@@ -4,10 +4,7 @@ import { simpleDivision, recursiveBackTracker, recursiveDivision } from "./MazeG
 
 class Graph {
   constructor(height, width) {
-    // this.nodes = []; // choosing array instead of object since it'll be a grid.
     this.nodes = {};
-    // this.rows = 6;
-    // this.cols = 6;
     this.rows = Math.floor(height / 25);
     this.cols = Math.floor(width / 25);
     this.start = null;
