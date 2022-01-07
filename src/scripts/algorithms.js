@@ -112,3 +112,45 @@ export const breadthFirst = (graph) => {
   return animateSearch(graph, searched);
 };
 
+export const dijkstras = (graph) => {
+  // object to track distance keys are the nodes
+  let distance = {};
+  const { nodes } = graph;
+  // set all nodes' distance to infinity
+  for (let node in nodes) {
+    distance[node] = Infinity;
+  }
+  // setting start equal to 0
+  distance[graph.start.id] = 0;
+  // way to check to see if the node has been visited
+  let unvisited = new Set(Object.keys(nodes)); // sets all nodes from graph in the unvisited set
+  let searched = new Set();
+  // let previous = {};
+  // while some nodes are still unvisited
+  while (unvisited.size) {
+    // for Sets, we must use .size to get the num members in that Set instead of .length
+    let currentId = minDistanceNode(unvisited, distance);
+    unvisited.delete(currentId);
+    if (nodes[currentId].status === 1) continue;
+    searched.add(currentId);
+    if (distance[currentId] === Infinity) return animateSearch(graph, searched);
+    if (currentId === graph.target.id) {
+      return animateSearch(graph, searched);
+    }
+    for (let neighbor of nodes[currentId].neighbors) {
+      if (!searched.has(neighbor.id)) {
+        neighbor.previousId = currentId;
+        distance[neighbor.id] = distance[currentId] + 1;
+      }
+    }
+  }
+};
+// this helper function will find the unvisited node with the smallest distance
+const minDistanceNode = (unvisited, distance) => {
+  // function minDistanceNode(unvisited, distance) {
+  // unvisited is a Set of string (nodes) and distance is an object where the keys are strings (nodes)
+  // convert the unvisited set into an array
+  return Array.from(unvisited).reduce((minNode, node) =>
+    distance[node] < distance[minNode] ? node : minNode
+  );
+};
