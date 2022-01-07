@@ -16,9 +16,9 @@
 
 <body>
     <div class="navBar_div">
-        <h1 class="navBar_h1">
+        <h1 class="navBar_h1" id="refreshButton" >
             <div class="navBar_h1ele">
-                <span class="navBar_h1span" id="refreshButton" href="#"><span>crosscut</span></span>
+                <span class="navBar_h1span"  href="#"><span>crosscut</span></span>
                 <span class="Mask"><span>crosscut</span></span>
                 <span class="Mask"><span>crosscut</span></span>
             </div>
@@ -37,20 +37,25 @@
                     </ul>
                 </div>
             </li>
-            <!-- <li class="navBar_li" onclick>
+            <li class="navBar_li" onclick>
                 <div class="dropDown">
                     <span class="dropDownFrom">Maze</span>
                     <span class="Mask"><span>Maze</span></span>
                     <span class="Mask"><span>Maze</span></span>
+                    <ul class="dropDownContent">
+                        <li id='buttonSimpleMaze'><a href="#">Simple Horizontal</a></li>
+                        <!-- <li id='buttonDFSMaze'><a href="#">Recursive Backtracking</a></li>
+                        <li id='buttonRecDiv'><a href="#">Recursive Division</a></li> -->
+                    </ul>
                 </div>
-            </li> -->
+            </li>
             <li class="navBar_li" onclick>
                 <div class="dropDown">
                     <span class="dropDownFrom">speed</span>
                     <span class="Mask"><span>speed</span></span>
                     <span class="Mask"><span>speed</span></span>
                     <ul class="dropDownContent">
-                        <li id='buttonFast'><a href="#">Fast</a></li>
+                        <li id='buttonFast' class="speed-selection"><a href="#">Fast</a></li>
                         <li id='buttonAverage'><a href="#">Average</a></li>
                         <li id='buttonSlow'><a href="#">Slow</a></li>
                     </ul>
@@ -63,8 +68,8 @@
                     <span class="Mask"><span>clear</span></span>
                     <ul class="dropDownContent">
                         <li id='buttonClearGrid'><a href="#">Grid</a></li>
-                        <!-- <li id='buttonClearWalls'><a href="#">Walls</a></li>
-                        <li id='buttonClearPath'><a href="#">Path</a></li> -->
+                        <li id='buttonClearWalls'><a href="#">Walls</a></li>
+                        <li id='buttonClearPath'><a href="#">Path</a></li>
                     </ul>
                 </div>
             </li>
@@ -81,22 +86,22 @@
             </li>
         </ul>
         <div class="controlBarButtons">
-            <button id="beginSearch">Select an Algorithm</button>
             <button data-popup-target="#popup" id="popup-start">Tutorial</button>
-                <div class="popup" id="popup">
-                    <div class="popup-header">
-                        <div class="title">Welcome</div>
-                        <button data-popup-close class="popup-close">&times;</button>
-                    </div>
-                    <div class="popup-body">
-                        Crosscut is a visualizer for pathfinding algorithms. To get started, select an algorithm from the dropdown menu "Algorithms", and be sure to select "Breadth-first Search" since it's the only one that's working right now. After that just hit begin, and watch the search go! 
-                    </div>
+            <div class="popup" id="popup">
+                <div class="popup-header">
+                    <div class="title">Welcome</div>
+                    <button data-popup-close class="popup-close">&times;</button>
                 </div>
-                <div id="overlay"></div>
+                <div class="popup-body">
+                    Crosscut is a visualizer for pathfinding algorithms. To get started, select an algorithm from the dropdown menu "Algorithms", and be sure to select "Breadth-first Search" since it's the only one that's working right now. After that just hit begin, and watch the search go! 
+                </div>
+            </div>
+            <div id="overlay"></div>
+            <button id="beginSearch">Select an Algorithm</button>
         </div>
     </div>
 
-    <div>
+    <div class="legend-container">
         <ul class=legend>
             <li id="legendStart"><img src='./assets/chevrons_right.svg' id='start_node'></img> Start Node</li>
             <li id="legendTarget"><img src='./assets/3d_cube.svg' id='target_node'></img> Target Node<li>
