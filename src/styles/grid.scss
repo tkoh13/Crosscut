@@ -1,29 +1,45 @@
 // grid stuff
-table tr td{
-    border: 1px solid #36c9c2;
-    background-color:  #c1ddfc;
-    // background: linear-gradient(45deg, #bddeff, #e6dfff);
+.grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
 #table_grid {
-    margin-left: auto;
-    margin-right: auto;
-    
+    padding: 25px;
+    // margin-left: auto;
+    // margin-right: auto;
+    // margin-top: 20px;
+    // margin-bottom: 25px;
+    // margin: 25px 20px 30px 20px;
 }
+
 #table_grid td {
     width: 24px;
     height: 24px;
 }
 
-#start_node {
-    // background-color: #5db1ad;
-    width: 24px;
-    height: 24px;
+table tr td{
+    border: 1px solid #36c9c2;
+    background-color:  #c1ddfc;
+    // background: linear-gradient(45deg, #bddeff, #e6dfff);
 }
 
-// .start {
-//     background-color: #c1ddfc;
-//     // background:url('chevrons_right.svg');
+// #start_node {
+//     // background-color: #5db1ad;
+//     width: 24px;
+//     height: 24px;
 // }
+
+.start {
+    background-color: #c1ddfc;
+    background-image:url("chevrons_right.svg");
+}
+
+.target {
+    background-color: #c1ddfc;
+    background-image:url("3d_cube.svg");
+}
 
 .wall {
     background-color: darkslategray
