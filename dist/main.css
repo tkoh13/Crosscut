@@ -533,7 +533,7 @@ table tr td {
 
 .contact-info {
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
   margin: 15px 30px 15px 30px;
   font-family: "Major Mono Display", monospace;
