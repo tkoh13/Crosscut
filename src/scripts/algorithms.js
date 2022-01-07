@@ -1,8 +1,8 @@
 const animatePath = (graph) => {
   let interval;
-  if (graph.speed === 3) interval = 10;
-  else if (graph.speed === 2) interval = 15;
-  else interval = 20;
+  if (graph.speed === 3) interval = 2;
+  else if (graph.speed === 2) interval = 10;
+  else interval = 15;
 
   let path = [];
   let currentNode = graph.target;
@@ -17,15 +17,15 @@ const animatePath = (graph) => {
           if (node !== graph.target) {
             document.getElementById(node.id).className = "pathNode";
           }
-      }, interval += 50);
+      }, interval += 10);
   }
 };
 
 const animateSearch = (graph, searched) => {
     let interval, additional
-    if (graph.speed === 3) interval = 10, additional = 15;
-    else if(graph.speed === 2) interval = 20, additional = 25;
-    else interval = 30, additional = 40;
+    if (graph.speed === 3) interval = 2, additional = 2;
+    else if(graph.speed === 2) interval = 10, additional = 10;
+    else interval = 20, additional = 20;
     // debugger
     searched.forEach((id) => {
         if (graph.nodes[id] === graph.start) {
