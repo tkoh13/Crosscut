@@ -150,7 +150,6 @@ class Graph {
             this.target.status = 5;
             document.getElementById(resetTarget).className = "target";
           } else {
-            // console.log("mouseup else")
             // this.previousNode = currentNode.status;
             // this.mouseDown = false;
             // this.selectedNode = null;
@@ -163,7 +162,6 @@ class Graph {
           for (let node of Object.values(this.nodes)) {
             node.getNeighbors(this);
           }
-          console.log(this.nodes);
         };
 
         currentEle.onmouseenter = () => {

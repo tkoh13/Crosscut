@@ -1,5 +1,4 @@
 const animatePath = (graph) => {
-  console.log("animating path")
   let interval;
   if (graph.speed === 3) interval = 10;
   else if (graph.speed === 2) interval = 15;
@@ -8,12 +7,10 @@ const animatePath = (graph) => {
   let path = [];
   let currentNode = graph.target;
   while (currentNode.previousId) {
-    // debugger
     if (currentNode === graph.start) break; 
     path.unshift(currentNode);
     currentNode = graph.nodes[currentNode.previousId];
   }
-  console.log(path.length);
   for (let i = 0; i < path.length; i ++) {
       setTimeout(() => {
           let node = path[i]; 
@@ -25,7 +22,6 @@ const animatePath = (graph) => {
 };
 
 const animateSearch = (graph, searched) => {
-  console.log("animating search")
     let interval, additional
     if (graph.speed === 3) interval = 10, additional = 15;
     else if(graph.speed === 2) interval = 20, additional = 25;

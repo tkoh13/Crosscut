@@ -239,17 +239,12 @@ export const recursiveDivision = (graph, rowStart, rowEnd, colStart, colEnd) => 
         }
       }
     });
-    console.log("rowStart", rowStart);
-    console.log("rowEnd", rowEnd);
-    console.log("colStart", colStart);
-    console.log("colEnd", colEnd);
+
     if (rowEnd - rowStart > randCol - 2 - colStart) {
-      console.log("vertical if");
       recursiveDivision(graph, rowStart, rowEnd, colStart, randCol - 2);
       // recursiveDivision(graph, rowStart, rowEnd, randCol + 2, colEnd);
     } 
     if (rowEnd - rowStart > colEnd - (randCol + 2)) {
-      console.log("vertical else");
       // recursiveDivision(graph, rowStart, rowEnd, colStart, randCol - 2);
       recursiveDivision(graph, rowStart, rowEnd, randCol + 2, colEnd);
     }

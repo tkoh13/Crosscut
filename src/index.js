@@ -8,14 +8,4 @@ document.addEventListener("DOMContentLoaded", () => {
   let width = Math.floor(document.documentElement.clientWidth * 0.9);
   let graph = new Graph(height, width);
   graph.setup();
-  // console.log(graph)
-  // let grid = new Grid(height, width)
-  // let nodesArr = grid.nodesArr
-  // grid.renderGraph(document.getElementById("table_grid"));
-  // grid.renderGrid(document.getElementById("table_grid"));
-  // console.log(grid)
-  // grid.addListenerForControls();
-  // grid.addListenerForChangingNodes();
-  // grid.addListenerForAddingWalls();
-  // grid.addListenerForTutorial();
 });
