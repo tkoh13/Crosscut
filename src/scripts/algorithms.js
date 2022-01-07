@@ -74,3 +74,41 @@ export const depthFirst = (graph) => {
     }
     return animateSearch(graph, searched);
 }
+
+export const breadthFirst = (graph) => {
+  let queue = [graph.start];
+  let searched = new Set();
+  let searching = true;
+  while (queue.length) {
+    let currentNode = queue.shift();
+    if (!searched.has(currentNode.id)) {
+      searched.add(currentNode.id);
+      // for (let neighbor of currentNode.neighbors) {
+      currentNode.neighbors.forEach((neighbor, idx) => {
+        if (!searched.has(neighbor.id) && neighbor.status === 5) {
+          neighbor.previousId = currentNode.id;
+          // currentNode.neighbors[idx + 1].previousId = currentNode.id;
+          // currentNode.neighbors[idx + 2].previousId = currentNode.id;
+          queue.push(neighbor);
+          // queue.push(currentNode.neighbors[idx + 1]);
+          // queue.push(currentNode.neighbors[idx + 2]);
+          queue.push(graph.target);
+          // searched.add(currentNode.neighbors[idx + 1].id);
+          // searched.add(currentNode.neighbors[idx + 2].id);
+          searched.add(graph.target.id);
+          searching = false;
+          // return animateSearch(graph, searched);
+        } else if (!searched.has(neighbor.id) && neighbor.status === 0) {
+          neighbor.previousId = currentNode.id;
+          queue.push(neighbor);
+        } else {
+          // console.log(neighbor) // start node
+        }
+      });
+      // }
+    }
+    if (!searching) return animateSearch(graph, searched);
+  }
+  return animateSearch(graph, searched);
+};
+
