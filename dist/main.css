@@ -226,6 +226,11 @@ body {
   display: block;
 }
 
+.speed-selection a {
+  background-color: #36c9c2;
+  color: #f34af3;
+}
+
 .controlBar {
   line-height: 1.2;
   justify-content: space-evenly;
@@ -315,6 +320,7 @@ input:checked + .slider:before {
   text-align: center;
   display: flex;
   justify-content: space-evenly;
+  margin: 15px;
 }
 
 .controlBarTogs {
@@ -382,6 +388,10 @@ input:checked + .slider:before {
   border-radius: 36px;
   color: #36c9c2;
   cursor: pointer;
+}
+
+.legend-container {
+  margin: 15px;
 }
 
 .legend {
@@ -462,14 +472,14 @@ input:checked + .slider:before {
   pointer-events: all;
 }
 
-table tr td {
-  border: 1px solid #36c9c2;
-  background-color: #c1ddfc;
+.grid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #table_grid {
-  margin-left: auto;
-  margin-right: auto;
+  padding: 25px;
 }
 
 #table_grid td {
@@ -477,9 +487,19 @@ table tr td {
   height: 24px;
 }
 
-#start_node {
-  width: 24px;
-  height: 24px;
+table tr td {
+  border: 1px solid #36c9c2;
+  background-color: #c1ddfc;
+}
+
+.start {
+  background-color: #c1ddfc;
+  background-image: url("chevrons_right.svg");
+}
+
+.target {
+  background-color: #c1ddfc;
+  background-image: url("3d_cube.svg");
 }
 
 .wall {

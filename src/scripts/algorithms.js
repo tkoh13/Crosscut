@@ -1,147 +1,76 @@
-export default class Algorithms {
-    constructor(grid) {
-        this.grid = grid;
-    }
+const animatePath = (graph) => {
+  console.log("animating path")
+  let interval;
+  if (graph.speed === 3) interval = 10;
+  else if (graph.speed === 2) interval = 15;
+  else interval = 20;
 
-    getAdjacent(node, name) {
-        // const positions = [[1, 0], [-1, 0], [0, 1], [0, -1]]
-        let adjacent = [];
-        // for (let pos of positions) {
-        //     let adjPos = [node.x + pos[0], node.y + pos[1]]
-        //         if (((adjPos[0]) >= 0) && ((adjPos[0]) < this.grid.rows) && ((adjPos[1]) >= 0) && ((adjPos[1]))) {
-        //             let potentialAdjacent = `${(node.x - 1).toString()}-${node.y.toString()}`
-        //             if (this.grid.nodes[potentialAdjacent].type !== "wall") {
-        //                 if (name === "bfs") {
-        //                     adjacent.push(potentialAdjacent);
-        //                 } else {
-        //                     adjacent.unshift(potentialAdjacent);
-        //                 }
-        //             }
-        //         }
-                
-        // }
-        let potentialAdjacent;
-        if (this.grid.nodesArr[node.x - 1] && this.grid.nodesArr[node.x - 1][node.y]) {
-            potentialAdjacent = `${(node.x - 1).toString()}-${node.y.toString()}`
-            if (this.grid.nodes[potentialAdjacent].type !== "wall") {
-                if (name === "bfs") {
-                    adjacent.push(potentialAdjacent);
-                } else {
-                    adjacent.unshift(potentialAdjacent);
-                }
-            }
-        }
-        if (this.grid.nodesArr[node.x][node.y + 1]) {
-            potentialAdjacent = `${node.x.toString()}-${(node.y + 1).toString()}`
-            if (this.grid.nodes[potentialAdjacent].type !== "wall") {
-                if (name === "bfs") {
-                    adjacent.push(potentialAdjacent);
-                } else {
-                    adjacent.unshift(potentialAdjacent);
-                }
-            }
-        }
-        if (this.grid.nodesArr[node.x + 1] && this.grid.nodesArr[node.x + 1][node.y]) {
-            potentialAdjacent = `${(node.x + 1).toString()}-${node.y.toString()}`
-            if (this.grid.nodes[potentialAdjacent].type !== "wall") {
-                if (name === "bfs") {
-                    adjacent.push(potentialAdjacent);
-                } else {
-                    adjacent.unshift(potentialAdjacent);
-                }
-            }
-        }
-        if (this.grid.nodesArr[node.x][node.y - 1]) {
-            potentialAdjacent = `${node.x.toString()}-${(node.y - 1).toString()}`
-            if (this.grid.nodes[potentialAdjacent].type !== "wall") {
-                if (name === "bfs") {
-                    adjacent.push(potentialAdjacent);
-                } else {
-                    adjacent.unshift(potentialAdjacent);
-                }
-            }
-        }
-        return adjacent;
-    }
-    
-    
-    getBFSPath() {
-        let BFSPath = [];
-        let currentNode = this.grid.targetNode;
-        while(currentNode.previousid !== null) { 
-            let pp = currentNode.previousid;
-            let previousNode = this.grid.nodes[pp];
-            BFSPath.unshift(currentNode);
-            currentNode = previousNode
-        }
-        console.log(BFSPath)
-        return BFSPath;
-    }
-    
-    animateBFSPath(BFSPath) {
-        for (let i = 0; i < BFSPath.length; i++) {
+  let path = [];
+  let currentNode = graph.target;
+  while (currentNode.previousId) {
+    // debugger
+    if (currentNode === graph.start) break; 
+    path.unshift(currentNode);
+    currentNode = graph.nodes[currentNode.previousId];
+  }
+  console.log(path.length);
+  for (let i = 0; i < path.length; i ++) {
+      setTimeout(() => {
+          let node = path[i]; 
+          if (node !== graph.target) {
+            document.getElementById(node.id).className = "pathNode";
+          }
+      }, interval += 50);
+  }
+};
+
+const animateSearch = (graph, searched) => {
+  console.log("animating search")
+    let interval, additional
+    if (graph.speed === 3) interval = 10, additional = 15;
+    else if(graph.speed === 2) interval = 20, additional = 25;
+    else interval = 30, additional = 40;
+    // debugger
+    searched.forEach((id) => {
+        if (graph.nodes[id] === graph.start) {
+            null; 
+        } else if (graph.nodes[id] === graph.target) {
             setTimeout(() => {
-                let node = BFSPath[i];
-                document.getElementById(node.id).className = 'pathNode'
-            }, 5 * i);
-        }
-    }
-    
-    animateBFS() {
-        for(let i = 0; i <= this.grid.animate.length; i++) {
-            if(i === this.grid.animate.length) {
-                setTimeout(() => {
-                    this.animateBFSPath(this.getBFSPath());
-                }, 8 * i);
-                return;
-            }
+              animatePath(graph);
+            }, (interval += 1000));
+        }else {
             setTimeout(() => {
-                let node = this.grid.animate[i];
-                document.getElementById(node.id).className = 'searchedNode'
-            }, 10 * i);
+            document.getElementById(id).className = "searchedNode";
+            }, interval += additional);
         }
-    }
-    
-    bfs() {
-        let start = this.grid.startNode;
-        let target = this.grid.targetNode
-        let queue = [start];
-        let searchedNodes = { start: true };
-        while (queue.length) {
-            let currentNode = queue.shift();
-            currentNode.visited = true;
-            if (currentNode.id === this.grid.targetNode.id) {
-                let targetIdx = this.grid.animate.indexOf(target);
-                this.grid.animate = this.grid.animate.slice(0, targetIdx);
-                return true;
-            }
-            let currentAdjacent = this.getAdjacent(currentNode, 'bfs');
+    });
+    // if (!animating) animatePath(graph);
+};
 
-            for (let adj of currentAdjacent) {
-                let adjPos = adj.split("-");
-                let adjNode = this.grid.nodesArr[adjPos[0]][adjPos[1]];
-                if (!searchedNodes[adjNode.id] && adjNode.type !== "wall") {
-                        searchedNodes[adjNode.id] = true;
-                        this.grid.animate.push(adjNode);
-                        if(adjNode !== this.grid.startNode){
-                            adjNode.previousPos = currentNode.pos;
-                            adjNode.previousid = currentNode.id;
-                            queue.push(adjNode);
-                        }
-                }
-            }
+export const depthFirst = (graph) => {
+    let stack = [graph.start];
+    let searched = new Set();
+    let searching = true;
+    while (stack.length) {
+        let currentNode = stack.pop();
+        if (!searched.has(currentNode.id)) {
+            searched.add(currentNode.id);
+            currentNode.neighbors.forEach((neighbor, idx) => {
+              if (!searched.has(neighbor.id) && neighbor.status === 5) {
+                neighbor.previousId = currentNode.id;
+                stack.push(neighbor);
+                stack.push(graph.target);
+                searched.add(graph.target.id);
+                searching = false;
+              } else if (!searched.has(neighbor.id) && neighbor.status === 0) {
+                neighbor.previousId = currentNode.id;
+                stack.push(neighbor);
+              } else {
+
+              }
+            });
         }
-        return false;
+        if (!searching) return animateSearch(graph, searched);
     }
-    
-    dfs() {
-        let start = this.grid.startNode;
-        let target = this.grid.targetNode
-        let stack = [start];
-        let searchedNodes = { start: true };
-        
-    }
-
-    
-    
+    return animateSearch(graph, searched);
 }
