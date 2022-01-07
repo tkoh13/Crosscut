@@ -1,6 +1,6 @@
 const animatePath = (graph) => {
   let interval;
-  if (graph.speed === 3) interval = 2;
+  if (graph.speed === 3) interval = 5;
   else if (graph.speed === 2) interval = 10;
   else interval = 15;
 
@@ -23,7 +23,7 @@ const animatePath = (graph) => {
 
 const animateSearch = (graph, searched) => {
     let interval, additional
-    if (graph.speed === 3) interval = 2, additional = 2;
+    if (graph.speed === 3) interval = 5, additional = 5;
     else if(graph.speed === 2) interval = 10, additional = 10;
     else interval = 20, additional = 20;
     // debugger
