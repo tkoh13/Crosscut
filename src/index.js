@@ -1,4 +1,3 @@
-import Grid from "./scripts/grid";
 import Graph from "./scripts/Graph";
 
 document.addEventListener("DOMContentLoaded", () => {

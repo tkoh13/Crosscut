@@ -523,3 +523,25 @@ table tr td {
   transition: transform 0.7s;
   transform: rotate(360deg);
 }
+
+#contact-container {
+  font-family: "Major Mono Display", monospace;
+  font-style: normal;
+  font-weight: normal;
+  color: #36c9c2;
+}
+
+.contact-info {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin: 15px 30px 15px 30px;
+  font-family: "Major Mono Display", monospace;
+  font-style: normal;
+  font-weight: normal;
+}
+.contact-info img {
+  color: #36c9c2;
+  width: 40px;
+  padding: 0 15px 0 15px;
+}
