@@ -161,7 +161,12 @@ body {
 
 .dropDown:hover .dropDownContent {display: block;}
 
- .controlBar {
+.speed-selection a {
+  background-color: #36c9c2;
+  color: #f34af3;
+}
+
+.controlBar {
   // font-size: 1rem;
   line-height: 1.2;
   // text-align: center;
@@ -259,6 +264,7 @@ body {
         text-align: center;
         display: flex;
         justify-content: space-evenly;
+        margin: 15px;
       }
 
       .controlBarTogs {
@@ -314,6 +320,9 @@ body {
 
 
       //Legend
+      .legend-container {
+        margin: 15px;
+      }
       .legend {
         // background-color: #c1ddfc;
         color: #f34af3;
