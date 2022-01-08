@@ -1,8 +1,8 @@
 const animatePath = (graph) => {
   let interval;
-  if (graph.speed === 3) interval = 5;
-  else if (graph.speed === 2) interval = 10;
-  else interval = 15;
+  if (graph.speed === 3) interval = 15;
+  else if (graph.speed === 2) interval = 20;
+  else interval = 25;
 
   let path = [];
   let currentNode = graph.target;
@@ -23,8 +23,8 @@ const animatePath = (graph) => {
 
 const animateSearch = (graph, searched) => {
     let interval, additional
-    if (graph.speed === 3) interval = 5, additional = 5;
-    else if(graph.speed === 2) interval = 10, additional = 10;
+    if (graph.speed === 3) interval = 10, additional = 10;
+    else if(graph.speed === 2) interval = 15, additional = 15;
     else interval = 20, additional = 20;
     // debugger
     searched.forEach((id) => {
@@ -113,7 +113,7 @@ export const dijkstras = (graph) => {
     distance[node] = Infinity;
   }
   distance[graph.start.id] = 0;
-  
+
   let unvisited = new Set(Object.keys(nodes)); 
   let searched = new Set();
 
