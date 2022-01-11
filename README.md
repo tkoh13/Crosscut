@@ -2,7 +2,7 @@
 [Live Site](https://tkoh13.github.io/Crosscut/#)
 ## Overview 
 
-Crosscut, at it's core is a visualizer for pathfinding algorithms. Users are able to create mazes and move elements around to watch the different algorithms traverse the graph. 
+Crosscut is a visualizer for pathfinding algorithms. Users are able to create mazes and move elements around to watch the different algorithms traverse the graph. 
 
 ![demo](https://github.com/tkoh13/Crosscut/blob/main/assets/demo.gif)
 
